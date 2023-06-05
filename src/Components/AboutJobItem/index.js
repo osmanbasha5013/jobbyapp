@@ -91,6 +91,7 @@ class AboutJobItem extends Component {
         companyLogoUrl,
         companyWebsiteUrl,
         employmentType,
+        id,
         jobDescription,
         lifeAtCompany,
         packagePerAnnum,
@@ -132,7 +133,7 @@ class AboutJobItem extends Component {
                 </div>
               </div>
             </div>
-            <hr />
+            <hr className="item-hr-line" />
             <div className="second-part-container">
               <div className="description-visit-container">
                 <h1 className="description-job-heading">Description</h1>
@@ -145,7 +146,7 @@ class AboutJobItem extends Component {
             <h1>Skills</h1>
             <ul className="ul-job-details-container">
               {skills.map(eachItem => (
-                <li className="li-job-details-container">
+                <li className="li-job-details-container" key={eachItem.id}>
                   <img
                     src={eachItem.imageUrl}
                     alt={eachItem.name}
@@ -195,7 +196,7 @@ class AboutJobItem extends Component {
         <button
           type="button"
           className="failure-job-details-btn"
-          onClick={this.onRetryJobDetailsAgain()}
+          onClick={this.onRetryJobDetailsAgain}
         >
           retry
         </button>

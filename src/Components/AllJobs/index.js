@@ -166,7 +166,10 @@ class AllJobs extends Component {
       const filteredData = checkboxInputs.filter(
         eachItem => eachItem === event.target.id,
       )
-      this.setState({checkboxInputs: filteredData}, this.onGetJobDetails)
+      this.setState(
+        prevState => ({checkboxInputs: filteredData}),
+        this.onGetJobDetails,
+      )
     }
   }
 
@@ -260,7 +263,7 @@ class AllJobs extends Component {
     ) : (
       <ul className="ul-jobs-item-container">
         {jobsData.map(eachItem => (
-          <JobItem key={eachItem.id} jobsData={eachItem} />
+          <JobItem key={eachItem.id} jobData={eachItem} />
         ))}
       </ul>
     )
